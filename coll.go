@@ -10,16 +10,23 @@ type Coll struct {
 	Parent *Coll
 }
 
-func NewColl(name string) *Coll {
+func New(name string) *Coll {
 	return &Coll{
 		Name: name,
 	}
 }
 
-func NewChildColl(name string, parent *Coll) *Coll {
+func NewChild(name string, parent *Coll) *Coll {
 	return &Coll{
 		Name:   name,
 		Parent: parent,
+	}
+}
+
+func (coll *Coll) NewChild(name string) *Coll {
+	return &Coll{
+		Name:   name,
+		Parent: coll,
 	}
 }
 

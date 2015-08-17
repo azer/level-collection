@@ -5,11 +5,11 @@ import (
 )
 
 var (
-	Users       = NewColl("users")
-	Likes       = NewChildColl("likes", Users)
-	Posts       = NewChildColl("posts", Users)
-	Comments    = NewChildColl("comments", Posts)
-	PostsSeenBy = NewChildColl("seen-by", Posts)
+	Users       = New("users")
+	Likes       = Users.NewChild("likes")
+	Posts       = Users.NewChild("posts")
+	Comments    = Posts.NewChild("comments")
+	PostsSeenBy = Posts.NewChild("seen-by")
 )
 
 func init() {
