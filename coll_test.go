@@ -41,9 +41,13 @@ func ExampleGetSet() {
 	Users.Select("pi@number.com").Write("3.14")
 	fmt.Println(Users.Select("pi@number.com").Read())
 
+	Users.Select("pi@number.com").Attr("more").Write("156")
+	fmt.Println(Users.Select("pi@number.com").Attr("more").Read())
+
 	Comments.Select("pi@number.com", "66055", "444111").Write("999.000")
 	fmt.Println(Comments.Select("pi@number.com", "66055", "444111").Read())
 	// Output: 3.14 <nil>
+	// 156 <nil>
 	// 999.000 <nil>
 }
 

@@ -40,8 +40,11 @@ Users.Select("azer@roadbeats.com").Read() // or ReadByte()
 Posts.Select("azer@roadbeats.com", "this is a title").Write("and this is the post")
 // SET users:azer@roadbeats.com:posts:this is a title TO and this is is the post
 
-Posts.Select("azer@roadbeats.com", "yo").Write("lo")
-Posts.Select("azer@roadbats.com", "yo").Delete()
+Users.Select("azer@roadbeats.com").Attr("yo").Write("lo")
+// SET users:azer@roadbeats.com:yo TO lo
+
+Users.Select("azer@roadbats.com").Attr("yo").Delete()
+// DELETE users:azer@roadbeats.com:yo
 ```
 
 Iterating:
@@ -79,6 +82,7 @@ See `coll_test.go` for more info.
 * ReadWrite.WriteByte(value []byte) ([]byte, error)
 * ReadWrite.Delete() error
 * ReadWrite.Iter() iterator.Iterator
+* ReadWrite.Attr(name string) *ReadWrite
 
 ## Logging
 

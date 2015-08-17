@@ -1,6 +1,7 @@
 package coll
 
 import (
+	"fmt"
 	"github.com/syndtr/goleveldb/leveldb/iterator"
 	"github.com/syndtr/goleveldb/leveldb/util"
 )
@@ -8,6 +9,11 @@ import (
 type ReadWrite struct {
 	Key   []byte
 	Error error
+}
+
+func (rw *ReadWrite) Attr(name string) *ReadWrite {
+	rw.Key = []byte(fmt.Sprintf("%s:%s", rw.Key, name))
+	return rw
 }
 
 func (rw *ReadWrite) Read() (string, error) {
