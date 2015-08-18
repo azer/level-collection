@@ -17,8 +17,8 @@ import "github.com/azer/level-collection"
 
 var (
 	Users       = coll.New("users")
-	Likes       = Users.NewChild("likes", Users)
-	Posts       = Users.NewChild("posts", Users)
+	Likes       = Users.NewChild("likes")
+	Posts       = Users.NewChild("posts")
 )
 
 func init () {
