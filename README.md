@@ -17,8 +17,8 @@ import "github.com/azer/level-collection"
 
 var (
 	Users       = coll.New("users")
-	Likes       = coll.NewChild("likes", Users)
-	Posts       = coll.NewChild("posts", Users)
+	Likes       = Users.NewChild("likes", Users)
+	Posts       = Users.NewChild("posts", Users)
 )
 
 func init () {
@@ -72,10 +72,11 @@ See `coll_test.go` for more info.
 * Set(key, value []byte)
 * Get(key []byte)
 * Delete(key []byte)
-* NewColl(name string) *Coll
-* NewChildColl(name string, parent *Coll) *Coll
+* New(name string) *Coll
+* NewChild(name string, parent *Coll) *Coll
 * Coll.Key(fields ...string) string
 * Coll.Select(fields ...string) *ReadWrite
+* Coll.NewChild(name string) *Coll
 * ReadWrite.Read() (string, error)
 * ReadWrite.ReadByte() ([]byte, error)
 * ReadWrite.Write(value string) (string, error)
